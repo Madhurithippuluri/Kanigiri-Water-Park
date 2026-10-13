@@ -730,3 +730,155 @@ a:focus-visible {
     transform: none;
   }
 }
+
+/* ================================
+   KANIGIRI WATER PARK ANIMATIONS
+================================ */
+
+/* Smooth scrolling between sections */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+/* Hero text entrance */
+.hero-copy {
+  animation: heroEnter 0.9s ease-out both;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero image gentle entrance */
+.hero-image-wrap {
+  animation: imageEnter 1.1s ease-out both;
+}
+
+@keyframes imageEnter {
+  from {
+    opacity: 0;
+    transform: translateX(25px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Floating note animation */
+.floating-note {
+  animation: floatNote 3s ease-in-out infinite;
+}
+
+@keyframes floatNote {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Attraction card hover effect */
+.ride-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.ride-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+}
+
+.ride-card img {
+  transition: transform 0.6s ease;
+}
+
+.ride-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Smooth button interactions */
+.btn,
+.btn-outline,
+.nav-cta {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.btn:hover,
+.btn-outline:hover,
+.nav-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 160, 255, 0.22);
+}
+
+/* Rain dance image zoom */
+.rain-photo {
+  transition: transform 0.7s ease;
+}
+
+.rain-section:hover .rain-photo {
+  transform: scale(1.025);
+}
+
+/* Visit cards */
+.visit-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.visit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Attraction and visit section headings */
+.section-head h2 {
+  animation: headingEnter 0.8s ease-out both;
+}
+
+@keyframes headingEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyboard accessibility */
+a:focus-visible {
+  outline: 3px solid #39bdf8;
+  outline-offset: 4px;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
