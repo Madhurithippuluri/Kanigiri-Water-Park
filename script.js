@@ -68,3 +68,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+/* Scroll-triggered reveal animations */
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(
+    ".hero-copy, .hero-image-wrap, .section-head, " +
+    ".ride-card, .rain-section, .visit-card, .contact"
+  );
+
+  // Show everything immediately if animations are disabled.
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  // Add the reveal class to each selected element.
+  elements.forEach((element) => {
+    element.classList.add("reveal");
+  });
+
+  // Reveal elements as they enter the viewport.
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -30px 0px"
+    }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+});
